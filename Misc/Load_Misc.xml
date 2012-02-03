@@ -1,0 +1,16 @@
+<Ui xmlns = "http://www.blizzard.com/wow/ui/">
+
+	<Script file = "Align.lua"/>
+	<Script file = "AlreadyKnown.lua"/>
+	<Script file = "AutoRepair.lua"/>
+	<Script file = "AutoSell.lua"/>
+	<Script file = "Durability.lua"/>	
+	<Script file = "Faction.lua"/>
+	<Script file = "Glow.lua"/>
+	<Script file = "Mail.lua"/>
+	<Script file = "Roster.lua"/>
+	<Script file = "ProfessionTabs.lua"/>
+	<Script file = "Ratings.lua"/>
+	<Script file = "tekKompare.lua"/>
+
+</Ui>
