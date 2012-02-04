@@ -1,0 +1,8 @@
+## Interface: 40200
+## Title: Aurora
+## Notes: Minimalistic window themes.
+## Author: Haleth/Freethinker
+## Version: 3.3.6
+
+Aurora_42.lua
+Aurora_43.lua
