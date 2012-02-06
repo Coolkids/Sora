@@ -164,52 +164,52 @@ if not (GetLocale() == "zhTW") then return end
 	
 --	SystemFont_Shadow_Small:SetFont(CLEAR_FONT, 15 * CF_SCALE)
 --	SystemFont_Shadow_Small:SetShadowColor(0, 0, 0) 
---	SystemFont_Shadow_Small:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Small:SetShadowOffset(1, -1) 
 
 --	SystemFont_InverseShadow_Small:SetFont(CLEAR_FONT, 10 * CF_SCALE)
 --	SystemFont_InverseShadow_Small:SetShadowColor(0.4, 0.4, 0.4) 
---	SystemFont_InverseShadow_Small:SetShadowOffset(1, -1) 
+	SystemFont_InverseShadow_Small:SetShadowOffset(1, -1) 
 --	SystemFont_InverseShadow_Small:SetAlpha(0.75)
 	
 --	SystemFont_Med1:SetFont(CLEAR_FONT, 13 * CF_SCALE)
 
 --	SystemFont_Shadow_Med1:SetFont(CLEAR_FONT, 15 * CF_SCALE)
 --	SystemFont_Shadow_Med1:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Med1:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Med1:SetShadowOffset(1, -1) 
 	
 --	SystemFont_Med2:SetFont(CLEAR_FONT_DAMAGE, 14 * CF_SCALE)
 
 --	SystemFont_Shadow_Med2:SetFont(CLEAR_FONT, 16 * CF_SCALE)
 --	SystemFont_Shadow_Med2:SetShadowColor(0, 0, 0) 
---	SystemFont_Shadow_Med2:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Med2:SetShadowOffset(1, -1) 
 	
 --	SystemFont_Med3:SetFont(CLEAR_FONT_DAMAGE, 13 * CF_SCALE)
 	
 --	SystemFont_Shadow_Med3:SetFont(CLEAR_FONT_DAMAGE, 15 * CF_SCALE)
 --	SystemFont_Shadow_Med3:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Med3:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Med3:SetShadowOffset(1, -1) 
 	
 --	SystemFont_Large:SetFont(CLEAR_FONT, 13 * CF_SCALE)
 	
 --	SystemFont_Shadow_Large:SetFont(CLEAR_FONT, 17 * CF_SCALE)
 --	SystemFont_Shadow_Large:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Large:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Large:SetShadowOffset(1, -1) 
 	
 --	SystemFont_Huge1:SetFont(CLEAR_FONT, 20 * CF_SCALE)
 
 --	SystemFont_Shadow_Huge1:SetFont(CLEAR_FONT, 20 * CF_SCALE)
 --	SystemFont_Shadow_Huge1:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Huge1:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Huge1:SetShadowOffset(1, -1) 
 	
 --	SystemFont_OutlineThick_Huge2:SetFont(CLEAR_FONT, 22 * CF_SCALE, "THICKOUTLINE")
 	
 --	SystemFont_Shadow_Outline_Huge2:SetFont(CLEAR_FONT, 25 * CF_SCALE, "OUTLINE")
 --	SystemFont_Shadow_Outline_Huge2:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Outline_Huge2:SetShadowOffset(2, -2)
+	SystemFont_Shadow_Outline_Huge2:SetShadowOffset(2, -2)
 	
 --	SystemFont_Shadow_Huge3:SetFont(CLEAR_FONT, 25 * CF_SCALE)
 --	SystemFont_Shadow_Huge3:SetTextColor(0, 0, 0)
---	SystemFont_Shadow_Huge3:SetShadowOffset(1, -1) 
+	SystemFont_Shadow_Huge3:SetShadowOffset(1, -1) 
 	
 --	SystemFont_OutlineThick_Huge4:SetFont(CLEAR_FONT, 26 * CF_SCALE, "THICKOUTLINE")
 	
@@ -218,23 +218,23 @@ if not (GetLocale() == "zhTW") then return end
 --	ReputationDetailFont:SetFont(CLEAR_FONT, 13 * CF_SCALE)
 --	ReputationDetailFont:SetTextColor(1, 1, 1)
 --	ReputationDetailFont:SetShadowColor(0, 0, 0) 
---	ReputationDetailFont:SetShadowOffset(1, -1) 
+	ReputationDetailFont:SetShadowOffset(1, -1) 
 
 --	FriendsFont_Normal:SetFont(CLEAR_FONT, 15 * CF_SCALE)
 --	FriendsFont_Normal:SetShadowColor(0, 0, 0) 
---	FriendsFont_Normal:SetShadowOffset(1, -1) 
+	FriendsFont_Normal:SetShadowOffset(1, -1) 
 
 --	FriendsFont_Large:SetFont(CLEAR_FONT, 17 * CF_SCALE)
 --	FriendsFont_Large:SetShadowColor(0, 0, 0) 
---	FriendsFont_Large:SetShadowOffset(1, -1) 
+	FriendsFont_Large:SetShadowOffset(1, -1) 
 
 --	FriendsFont_UserText:SetFont(CLEAR_FONT_CHAT, 11 * CF_SCALE)
 --	FriendsFont_UserText:SetShadowColor(0, 0, 0) 
---	FriendsFont_UserText:SetShadowOffset(1, -1) 
+	FriendsFont_UserText:SetShadowOffset(1, -1) 
 
 --	GameFont_Gigantic:SetFont(CLEAR_FONT, 41 * CF_SCALE)
 --	GameFont_Gigantic:SetShadowColor(0, 0, 0) 
---	GameFont_Gigantic:SetShadowOffset(1, -1) 
+	GameFont_Gigantic:SetShadowOffset(1, -1) 
 --	GameFont_Gigantic:SetTextColor(1.0, 0.82, 0)
 
 

@@ -4,5 +4,6 @@
 	<Script file = "ChatEmotion.lua"/>
 	<Script file = "ChatBar.lua"/>
 	<Script file = "TabChannel.lua"/>
-	
+	<Script file = "damagemeters.lua"/>
+	<Script file = "rollcolector.lua"/>
 </Ui>
