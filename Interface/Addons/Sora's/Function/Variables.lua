@@ -9,7 +9,7 @@ Launch:SetScript("OnEvent", function(self, event)
 			for _, v in pairs({GetAddOnInfo(i)}) do
 				if v and type(v) == 'string' and (v:lower():find("BigFoot") or v:lower():find("Duowan") or v:lower():find("163UI") or v:lower():find("FishUI") or v:lower():find("大脚") or v:lower():find("大腳") or v:lower():find("多玩")) then
 					print("侦测到您正在使用大脚或者魔盒,为了让您用的舒适所以插件自我关闭掉.如想使用本插件请完全删除大脚或者魔盒")
-					return end
+					DB.Nuke = true else DB.Nuke = false  end
 				end
 			end
 		end
