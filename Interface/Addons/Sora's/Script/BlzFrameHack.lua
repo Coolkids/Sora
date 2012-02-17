@@ -1,4 +1,5 @@
-﻿-- 隐藏小队框体
+﻿local S, C, L, DB = unpack(select(2, ...))
+-- 隐藏小队框体
 for i = 1, MAX_PARTY_MEMBERS do
 	local PartyMemberFrame = _G["PartyMemberFrame"..i]
 	PartyMemberFrame:UnregisterAllEvents()
