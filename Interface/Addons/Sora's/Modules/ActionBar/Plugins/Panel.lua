@@ -38,10 +38,28 @@ function Module:BuildButton()
 	local LeftButton = S.MakeButton(UIParent)
 	LeftButton:SetSize(C["ButtonSize"], 8)
 	LeftButton:SetPoint("RIGHT", ExpBar, "LEFT", -5, 0)
+	LeftButton:SetScript("OnMouseUp", function(self, button)
+			if click == 0 then 
+				rABS_MultiBarLeft:Hide()
+				click = 1 
+			else
+				rABS_MultiBarLeft:Show()
+				click = 0
+			end
+		end)
 	
 	local RightButton = S.MakeButton(UIParent)
 	RightButton:SetSize(C["ButtonSize"], 8)
 	RightButton:SetPoint("LEFT", ExpBar, "RIGHT", 5, 0)
+	RightButton:SetScript("OnMouseUp", function(self, button)
+			if click == 0 then 
+				rABS_MultiBarRight:Hide()
+				click = 1 
+			else
+				rABS_MultiBarRight:Show()
+				click = 0
+			end
+		end)
 end
 
 function Module:OnEvent()
