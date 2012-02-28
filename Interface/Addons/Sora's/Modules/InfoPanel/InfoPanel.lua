@@ -378,19 +378,17 @@ local StatusBar = CreateFrame("StatusBar", "FPS", UIParent)
 		else
 			self:SetStatusBarColor(1, 0, 0, 0.6)
 		end
-		self:SetStatusBarColor(r, g, b)
 		self.LastUpdate = 1
 		end
 	end)
 	StatusBar:SetScript("OnEnter", function(self)
 		local value = floor(GetFramerate())
-		local r, g, b = S.ColorGradient(value/100, 1, 0, 0, 0, 1, 0, 0, 0.4, 1)
 		if not InCombatLockdown() then
 			GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 0, 0)
 			GameTooltip:ClearLines()
 			GameTooltip:AddLine("FPS", 0.4, 0.78, 1)
 			GameTooltip:AddLine(" ")
-			GameTooltip:AddDoubleLine("FPS",value, 0.4, 0.78, 1, r, g, b)
+			GameTooltip:AddDoubleLine("FPS",value, 0.4, 0.78, 1, 0.4, 0.78, 1)
 			GameTooltip:Show()
 		end
 	end)
