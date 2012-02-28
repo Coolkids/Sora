@@ -119,7 +119,7 @@ local function BuildMemory(Anchor)
 	StatusBar:SetHeight(6)	
 	StatusBar:SetWidth(80)
 	StatusBar:SetStatusBarTexture(DB.Statusbar)
-	StatusBar:SetMinMaxValues(0, 15000)
+	StatusBar:SetMinMaxValues(0, 35000)
 	StatusBar:SetStatusBarColor(0, 0.4, 1, 0.6)
 	StatusBar:SetPoint("RIGHT", Anchor, "LEFT", -20, 0)
 	StatusBar.Shaodw = S.MakeShadow(StatusBar, 3)
@@ -140,9 +140,9 @@ local function BuildMemory(Anchor)
 			local total = UpdateMemory()
 			self.Text:SetText(S.FormatMemory(total))
 			StatusBar:SetValue(total)
-			if total > 12000 then
+			if total > 25000 then
 				self:SetStatusBarColor(1, 0, 0, 0.6)
-			elseif total > 8000 then
+			elseif total > 10000 then
 				self:SetStatusBarColor(1, 1, 0, 0.6)
 			else
 				self:SetStatusBarColor(0, 0.4, 1, 0.6)
