@@ -5,5 +5,5 @@
 	<Script file = "ChatBar.lua"/>
 	<Script file = "TabChannel.lua"/>
 	<Script file = "damagemeters.lua"/>
-	<Script file = "rollcolector.lua"/>
+	<Script file = "channel.lua"/>
 </Ui>

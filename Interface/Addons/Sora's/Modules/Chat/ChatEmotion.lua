@@ -100,3 +100,87 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_BATTLEGROUND", myChatFilter)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_AFK", myChatFilter)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_DND", myChatFilter)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_OFFICER", myChatFilter)
+local function CreateEmoteTableFrame()
+	EmoteTableFrame = CreateFrame("Frame", "EmoteTableFrame", UIParent)
+	S.MakeShadow(EmoteTableFrame, 3)
+	S.MakeBG(EmoteTableFrame, 0)
+	EmoteTableFrame:SetWidth((IconSize+2) * 12+4)
+	EmoteTableFrame:SetHeight((IconSize+2) * 5+4)
+	EmoteTableFrame:SetPoint("BOTTOMRIGHT", ChatFrame1, "TOPRIGHT", 0, 5)
+	EmoteTableFrame:Hide()
+	EmoteTableFrame:SetFrameStrata("DIALOG")
+
+	local icon, row, col
+	row = 1
+	col = 1
+	for i=1,#emotes do 
+		text = emotes[i][1]
+		texture = emotes[i][2]
+		icon = CreateFrame("Frame", format("IconButton%d",i), EmoteTableFrame)
+		icon:SetWidth(IconSize)
+		icon:SetHeight(IconSize)
+		icon.text = text
+		
+		icon.texture = icon:CreateTexture(nil,"ARTWORK")
+		icon.texture:SetTexture(texture)
+		icon.texture:SetAllPoints(icon)
+		icon:Show()
+		icon:SetPoint("TOPLEFT", (col-1)*(IconSize+2)+2, -(row-1)*(IconSize+2)-2)
+		icon:SetScript("OnMouseUp", function(self)   
+		local ChatFrame1EditBox = ChatEdit_ChooseBoxForSend()
+		if (not ChatFrame1EditBox:IsShown()) then
+			ChatEdit_ActivateChat(ChatFrame1EditBox)
+		end
+		ChatFrame1EditBox:Insert(self.text)
+		EmoteTableFrame:Hide()
+		end)
+		icon:SetScript("OnEnter",  function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
+		GameTooltip:AddLine(self.text)
+		GameTooltip:Show()  end)
+		icon:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
+		icon:EnableMouse(true)
+		col = col + 1 
+		if (col>12) then
+			row = row + 1
+			col = 1
+		end
+	end
+end
+
+local function ToggleEmoteTable()
+	if (not EmoteTableFrame) then CreateEmoteTableFrame() end
+	if (EmoteTableFrame:IsShown()) then
+		EmoteTableFrame:Hide()
+	else
+		EmoteTableFrame:Show()
+	end
+
+end
+
+function EmoteIconMouseUp(self, button)
+	if (button == "LeftButton") then
+		ChatFrameEditBox:Show()
+		ChatFrameEditBox:Insert(text)
+	end
+	--ToggleEmoteTable()
+end
+
+local button = CreateFrame("Button", "ButtonE", ChatFrame1)
+		button:SetPoint("TOPLEFT", ChatFrame1, "TOPRIGHT", 5, 0)
+		button:SetSize(20,20)
+		button.text = button:CreateFontString(nil, 'OVERLAY')
+		button.text:SetFont(DB.Font, 12, "THINOUTLINE")
+		button.text:SetText("E")
+		button.text:SetPoint("CENTER", 3, 0)
+		button.text:SetTextColor(23/255, 132/255, 209/255)
+		button:SetScript("OnMouseUp", function(self, btn)
+			ToggleEmoteTable()
+		end)
+		button:SetScript("OnEnter",  function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
+		GameTooltip:AddLine("表情")
+		GameTooltip:Show()  end)
+		button:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
+		S.MakeBG(button, 0)
+		S.Reskin(button)

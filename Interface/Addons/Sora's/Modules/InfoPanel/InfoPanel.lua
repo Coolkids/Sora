@@ -35,7 +35,7 @@ local tokens = {
 local function BuildClock()
 	local Clock = CreateFrame("Frame", nil, UIParent)
 	Clock.Text = S.MakeFontString(Clock, 14)
-	Clock.Text:SetPoint("TOP", MoveHandle.InfoPanel)
+	Clock.Text:SetPoint("RIGHT", MoveHandle.InfoPanel, "RIGHT")
 	Clock:SetAllPoints(Clock.Text)
 	Clock:SetScript("OnEnter", function(self)
 		GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
@@ -222,7 +222,7 @@ local function BuildDurability(Anchor)
 	StatusBar:SetStatusBarTexture(DB.Statusbar)
 	StatusBar:SetMinMaxValues(0, 100)
 	StatusBar:SetStatusBarColor(0, 0.4, 1, 0.6)
-	StatusBar:SetPoint("LEFT", Anchor, "RIGHT", 20, 0)
+	StatusBar:SetPoint("RIGHT", Anchor, "LEFT", -20, 0)
 	StatusBar.Shaodw = S.MakeShadow(StatusBar, 3)
 	StatusBar.Text = S.MakeFontString(StatusBar, 10)
 	StatusBar.Text:SetPoint("CENTER", 0, -5)
@@ -321,7 +321,7 @@ local function BuildCurrency(Anchor)
 	StatusBar:SetStatusBarTexture(DB.Statusbar)
 	StatusBar:SetMinMaxValues(0, 99999)
 	StatusBar:SetStatusBarColor(0, 0.4, 1, 0.6)
-	StatusBar:SetPoint("LEFT", Anchor, "RIGHT", 20, 0)
+	StatusBar:SetPoint("RIGHT", Anchor, "LEFT", -20, 0)
 	StatusBar.Shaodw = S.MakeShadow(StatusBar, 3)
 	StatusBar.Text = S.MakeFontString(StatusBar, 10)
 	StatusBar.Text:SetPoint("CENTER", 0, -5)
@@ -351,13 +351,60 @@ local function BuildCurrency(Anchor)
 	return StatusBar
 end
 
+local function BuildFPS(Anchor)
+local StatusBar = CreateFrame("StatusBar", "FPS", UIParent)
+	StatusBar:SetHeight(6)	
+	StatusBar:SetWidth(80)
+	StatusBar:SetStatusBarTexture(DB.Statusbar)
+	StatusBar:SetStatusBarColor(0, 0.4, 1, 0.6)
+	StatusBar:SetPoint("RIGHT", Anchor, "LEFT", -20, 0)
+	StatusBar.Shaodw = S.MakeShadow(StatusBar, 3)
+	StatusBar.Text = S.MakeFontString(StatusBar, 10)
+	StatusBar.Text:SetPoint("CENTER", 0, -5)
+	StatusBar.Text:SetText("FPS: 0")
+	StatusBar.LastUpdate = 1
+	StatusBar:SetScript("OnUpdate", function(self, elapsed)
+		self.LastUpdate = self.LastUpdate - elapsed
+		if self.LastUpdate < 0 then
+		self:SetMinMaxValues(0, 100)
+		local value = floor(GetFramerate())
+		local max = GetCVar("MaxFPS")
+		self:SetValue(value)
+		self.Text:SetText("FPS: "..value)
+		if value > 60 then
+			self:SetStatusBarColor(0, 0.4, 1, 0.6)
+		elseif value > 30 then
+			self:SetStatusBarColor(1, 1, 0, 0.6)
+		else
+			self:SetStatusBarColor(1, 0, 0, 0.6)
+		end
+		self:SetStatusBarColor(r, g, b)
+		self.LastUpdate = 1
+		end
+	end)
+	StatusBar:SetScript("OnEnter", function(self)
+		local value = floor(GetFramerate())
+		local r, g, b = S.ColorGradient(value/100, 1, 0, 0, 0, 1, 0, 0, 0.4, 1)
+		if not InCombatLockdown() then
+			GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 0, 0)
+			GameTooltip:ClearLines()
+			GameTooltip:AddLine("FPS", 0.4, 0.78, 1)
+			GameTooltip:AddLine(" ")
+			GameTooltip:AddDoubleLine("FPS",value, 0.4, 0.78, 1, r, g, b)
+			GameTooltip:Show()
+		end
+	end)
+	StatusBar:SetScript("OnLeave", function() GameTooltip:Hide() end)
+end
+
 function Module:OnEnable()
 	local InfoPanelPos = CreateFrame("Frame", nil, UIParent)
-	InfoPanelPos:SetSize(480, 20)
+	InfoPanelPos:SetSize(580, 20)
 	MoveHandle.InfoPanel = S.MakeMoveHandle(InfoPanelPos, "信息面板", "InfoPanel")
 	local Clock = BuildClock()
 	local Memory = BuildMemory(Clock)
 	local Ping = BuildPing(Memory)
-	local Durability = BuildDurability(Clock)
+	local Durability = BuildDurability(Ping)
 	local Currency = BuildCurrency(Durability)
+	local FPS = BuildFPS(Currency)
 end
