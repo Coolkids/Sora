@@ -1,5 +1,5 @@
 -- Engines
-local _, _, _, DB = unpack(select(2, ...))
+local S, _, _, DB = unpack(select(2, ...))
 
 local IconSize = 20					 -- 表情IconSize
 local fdir = DB.Icon				 -- 表情材质路径
