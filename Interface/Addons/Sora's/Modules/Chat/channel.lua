@@ -2,7 +2,7 @@
 
 local button = CreateFrame("Button", "ButtonP", ChatFrame1)
 		button:SetPoint("TOP", ButtonE, "BOTTOM", 0, -5)
-		button:SetSize(20)
+		button:SetSize(20, 20)
 		button.text = button:CreateFontString(nil, 'OVERLAY')
 		button.text:SetFont(DB.Font, 12, "THINOUTLINE")
 		button.text:SetText("P")
