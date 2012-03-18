@@ -149,7 +149,6 @@ do
 		"团队", --Raid
 		"团队领袖", --Raid Leader
 		"团队警告", --Raid Warning
-		"世界",
 	}
 	chn = {
 		"%[%d+%. General.-%]",
