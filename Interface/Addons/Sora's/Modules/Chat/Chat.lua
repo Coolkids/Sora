@@ -169,7 +169,7 @@ do
 		gsub(CHAT_RAID_WARNING_GET, ".*%[(.*)%].*", "%%[%1%%]"),
 	}
 	local Lo = GetLocale()
-	if Lo == "XX" then --Russian
+	if Lo == "ruRU" then --Russian
 		chn[1] = "%[%d+%. 1-%]"
 		chn[2] = "%[%d+%. 2%]"
 		chn[3] = "%[%d+%. 3%]" --Defense: Global
@@ -189,11 +189,6 @@ local function AddMessage(frame, text, ...)
 	for i = 1, 16 do
 		text = gsub(text, chn[i], rplc[i])
 	end
-	--If Blizz timestamps is enabled, stamp anything it misses
-	if CHAT_TIMESTAMP_FORMAT and not text:find("|r") then
-		text = BetterDate(CHAT_TIMESTAMP_FORMAT, time())..text
-	end
-	text = gsub(text, "%[(%d0?)%. .-%]", "[%1]") --custom channels
 	return newAddMsg[frame:GetName()](frame, text, ...)
 end
 do
