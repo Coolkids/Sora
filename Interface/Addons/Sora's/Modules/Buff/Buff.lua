@@ -53,7 +53,14 @@ function Module:OnEnable()
 	DebuffPos:SetSize(C["IconSize"], C["IconSize"])
 	MoveHandle.Debuff = S.MakeMoveHandle(DebuffPos, "Debuff", "Debuff")
 end
-
+function Module:SortBuff()
+	tsort(BuffTable["Time"], function(a, b)
+		return a.timeLeft and not b.timeLeft or a.timeLeft > b.timeLeft
+	end)
+	for key, value in pairs(BuffTable["Time"]) do
+		tinsert(BuffTable["None"], value)
+	end
+end
 function Module:GetWeaponEnchantNum()
 	local Num = 0
 	hasMainHandEnchant, _, _, hasOffHandEnchant, _, _, hasThrownEnchant = GetWeaponEnchantInfo()
@@ -106,6 +113,7 @@ hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
 			tinsert(BuffTable["Time"], _G["BuffButton"..i])
 		end
 	end
+	Module:SortBuff()
 	Module:UpdateBuffPos()
 end)
 
