@@ -34,7 +34,7 @@ local function StyleActionButton(self)
 		if Name then		
 			Name:ClearAllPoints()
 			Name:SetPoint("BOTTOMLEFT", -3, 2)
-			Name:SetFont(DB.Font, C["MFontSize"], "THINOUTLINE")
+			Name:SetFont(DB.Font, C["FontSize"], "THINOUTLINE")
 			
 			if C["HideMacroName"] then
 				Name:SetText("")

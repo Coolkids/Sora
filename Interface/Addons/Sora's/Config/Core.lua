@@ -52,7 +52,6 @@ DB["Config"] = {
 		order = 2,
 		func = function()
 			if not UnitAffectingCombat("player") then
-				SlashCmdList.rabs("unlock")
 				for _, value in pairs(MoveHandle) do value:Show() end
 			end		
 		end,
@@ -63,7 +62,6 @@ DB["Config"] = {
 		order = 3,
 		func = function()
 			if not UnitAffectingCombat("player") then
-				SlashCmdList.rabs("lock")
 				for _, value in pairs(MoveHandle) do value:Hide() end
 			end
 		end,

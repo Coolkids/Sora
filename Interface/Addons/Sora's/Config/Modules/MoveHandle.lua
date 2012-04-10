@@ -19,6 +19,9 @@ function Module.LoadSettings()
 		["Raid"] = {"BOTTOMRIGHT", "UIParent", "BOTTOMRIGHT", -5, 5},
 		["BossFrame"] = {"TOPRIGHT", "UIParent", "TOPRIGHT", -50, -200},
 		["ActionBar"] = {"BOTTOM", "UIParent", "BOTTOM", 0, 20},
+		["extrabar"] = {"CENTER", "UIParent", "CENTER", 0, 0},
+		["totembar"] = {"CENTER", "UIParent", "CENTER", 0, 100}, 
+		["vehicleexit"] = {"BOTTOM", "UIParent", "BOTTOM", 278, 66}, 
 		["LeftBar"] = {"LEFT", "UIParent", "LEFT", 5, 0},
 		["RightBar"] = {"RIGHT", "UIParent", "RIGHT", -5, 0},
 		["Buff"] = {"TOPRIGHT", "UIParent", "TOPRIGHT", -5, -5},
@@ -26,6 +29,8 @@ function Module.LoadSettings()
 		["Minimap"] = {"TOPLEFT", "UIParent", "TOPLEFT", 10, -30},
 		["ChatFrame"] = {"BOTTOMLEFT", "UIParent", "BOTTOMLEFT", 5, 25},
 		["InfoPanel"] = {"TOP", "UIParent", "TOP", 0, -10},
+		["bar4"] = {"RIGHT", "UIParent", "RIGHT", -10, 0 }, 
+		["bar5"] = {"LEFT", "UIParent", "LEFT", 10, 0 }, 
 	}
 	if not MoveHandleDB then MoveHandleDB = {} end
 	for key, value in pairs(Default) do

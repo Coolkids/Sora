@@ -6,10 +6,14 @@ local ExpBar = nil
 function Module:BuildExpBar()
 	ExpBar = CreateFrame("StatusBar", nil, UIParent)
 	ExpBar:SetStatusBarTexture(DB.Statusbar)
-	
-	ExpBar:SetWidth(C["PanelBar"])
-	ExpBar:SetHeight(8)
-	ExpBar:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 10)
+	if C["BarLayout"] == 2 then
+		ExpBar:SetPoint("TOPLEFT", MultiBarBottomRightButton2, "BOTTOMLEFT", 0, -7)
+		ExpBar:SetPoint("BOTTOMRIGHT", MultiBarBottomRightButton8, "BOTTOMRIGHT", 0, -13)
+	end
+	if C["BarLayout"] == 1 then
+		ExpBar:SetPoint("TOPLEFT", ActionButton2, "BOTTOMLEFT", 0, -7)
+		ExpBar:SetPoint("BOTTOMRIGHT", ActionButton11, "BOTTOMRIGHT", -0, -13)
+	end
 	ExpBar.Rest = CreateFrame("StatusBar", nil, ExpBar)
 	ExpBar.Rest:SetAllPoints()
 	ExpBar.Rest:SetStatusBarTexture(DB.Statusbar)
@@ -37,26 +41,26 @@ end
 function Module:BuildButton()
 	local LeftButton = S.MakeButton(UIParent)
 	LeftButton:SetSize(C["ButtonSize"], 8)
-	LeftButton:SetPoint("RIGHT", ExpBar, "LEFT", -5, 0)
+	LeftButton:SetPoint("RIGHT", ExpBar, "LEFT", -C["ButtonSpacing"], 0)
 	LeftButton:SetScript("OnMouseUp", function(self, button)
 			if click == 0 then 
-				rABS_MultiBarLeft:Hide()
+				SunUIActionBar5:Hide()
 				click = 1 
 			else
-				rABS_MultiBarLeft:Show()
+				SunUIActionBar5:Show()
 				click = 0
 			end
 		end)
 	
 	local RightButton = S.MakeButton(UIParent)
 	RightButton:SetSize(C["ButtonSize"], 8)
-	RightButton:SetPoint("LEFT", ExpBar, "RIGHT", 5, 0)
+	RightButton:SetPoint("LEFT", ExpBar, "RIGHT", C["ButtonSpacing"], 0)
 	RightButton:SetScript("OnMouseUp", function(self, button)
 			if click == 0 then 
-				rABS_MultiBarRight:Hide()
+				SunUIActionBar4:Hide()
 				click = 1 
 			else
-				rABS_MultiBarRight:Show()
+				SunUIActionBar4:Show()
 				click = 0
 			end
 		end)
