@@ -576,7 +576,7 @@ function Module:UpdateTotemBar()
 		b:SetPoint("TOPLEFT", mcab, -1, 1)
 		b:SetPoint("BOTTOMRIGHT", mcab, 1, -1)
 
-		b:CreateShadow()
+		S.MakeShadow(b, 3)
 
 		b:Hide()
 		b:RegisterEvent("MODIFIER_STATE_CHANGED")
