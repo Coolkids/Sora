@@ -240,7 +240,7 @@ end
 
 function Module:UpdateExtraBar()
 	local bar = CreateFrame("Frame","SunUIExtraActionBar",UIParent,"SecureHandlerStateTemplate")
-	bar:SetSize(C["ButtonSize"],C["ButtonSize"])
+	bar:SetSize(C["ButtonSize"]*2,C["ButtonSize"]*2)
 	bar:SetHitRectInsets(-10, -10, -10, -10)
 
 	MoveHandle.SunUIExtraActionBar = S.MakeMoveHandle(bar, "特殊按钮", "extrabar")
