@@ -249,13 +249,14 @@ function Module:UpdateExtraBar()
 	local f = ExtraActionBarFrame
 	f:SetParent(bar)
 	f:ClearAllPoints()
-	f:SetPoint("CENTER", 0, 0)
+	f:SetAllPoints(bar)
 	f.ignoreFramePositionManager = true
 
   --the button
 	local b = ExtraActionButton1
-	b:SetSize(C["ButtonSize"],C["ButtonSize"])
 	bar.button = b
+	ExtraActionButton1Cooldown:SetPoint("TOPLEFT")
+	ExtraActionButton1Cooldown:SetPoint("BOTTOMRIGHT")
 
   --style texture
 	local s = b.style
